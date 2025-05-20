@@ -89,6 +89,10 @@ class PathwayDetector:
         """
         active_nodes = []
 
+        # Check if 'amplitude' key exists and is a dictionary
+        if 'amplitude' not in features or not isinstance(features['amplitude'], dict) or not features['amplitude']:
+            return active_nodes
+
         for i in features['amplitude']:
             amplitude = features['amplitude'][i]
             if np.any(amplitude > self.amplitude_threshold):
@@ -109,15 +113,37 @@ class PathwayDetector:
             Dictionary mapping node indices to activation times.
         """
         activation_times = {}
+
+        # Check if 'times' key exists, is a numpy array and is not empty
+        if 'times' not in features or not isinstance(features['times'], np.ndarray) or not features['times'].size > 0:
+            # Or log a warning: logging.warning("Missing or invalid 'times' in features.")
+            return activation_times
+        
+        # Check if 'amplitude' key exists and is a dictionary and is not empty
+        if 'amplitude' not in features or not isinstance(features['amplitude'], dict) or not features['amplitude']:
+            # Or log a warning: logging.warning("Missing or invalid 'amplitude' in features.")
+            return activation_times
+
         times = features['times']
 
         for i in active_nodes:
+            # Ensure node i is in features['amplitude'] before accessing
+            if i not in features['amplitude']:
+                continue  # Skip if node i is not in features['amplitude']
+
             amplitude = features['amplitude'][i]
+            # Ensure amplitude is a numpy array
+            if not isinstance(amplitude, np.ndarray):
+                continue
             is_active = amplitude > self.amplitude_threshold
 
             if np.any(is_active):
                 activation_idx = np.argmax(is_active)
-                activation_times[i] = times[activation_idx]
+                # Ensure activation_idx is within bounds of times array
+                if activation_idx < len(times):
+                    activation_times[i] = times[activation_idx]
+                # else:
+                    # Or log a warning: logging.warning(f"Activation index out of bounds for node {i}.")
 
         return activation_times
 
@@ -134,16 +160,27 @@ class PathwayDetector:
             Dictionary mapping node indices to activation phases.
         """
         activation_phases = {}
+
+        # Check if 'times' key exists, is a numpy array and is not empty
+        if 'times' not in features or not isinstance(features['times'], np.ndarray) or not features['times'].size > 0:
+            return activation_phases
+        
+        # Check if 'phase' key exists and is a dictionary
+        if 'phase' not in features or not isinstance(features['phase'], dict):
+            return activation_phases
+
         times = features['times']
 
         for i in active_nodes:
-            if i in features['activation_time'] and features['activation_time'][i] is not None:
-                activation_time = features['activation_time'][i]
+            activation_time = features.get('activation_time', {}).get(i)
+            if activation_time is not None:
                 activation_idx = np.argmin(np.abs(times - activation_time))
 
                 if i in features['phase']:
                     phase = features['phase'][i]
-                    activation_phases[i] = phase[activation_idx]
+                    # Ensure phase is a numpy array and activation_idx is within bounds
+                    if isinstance(phase, np.ndarray) and activation_idx < len(phase):
+                        activation_phases[i] = phase[activation_idx]
 
         return activation_phases
 
@@ -160,16 +197,27 @@ class PathwayDetector:
             Dictionary mapping node indices to activation amplitudes.
         """
         activation_amplitudes = {}
+
+        # Check if 'times' key exists, is a numpy array and is not empty
+        if 'times' not in features or not isinstance(features['times'], np.ndarray) or not features['times'].size > 0:
+            return activation_amplitudes
+
+        # Check if 'amplitude' key exists and is a dictionary
+        if 'amplitude' not in features or not isinstance(features['amplitude'], dict):
+            return activation_amplitudes
+            
         times = features['times']
 
         for i in active_nodes:
-            if i in features['activation_time'] and features['activation_time'][i] is not None:
-                activation_time = features['activation_time'][i]
+            activation_time = features.get('activation_time', {}).get(i)
+            if activation_time is not None:
                 activation_idx = np.argmin(np.abs(times - activation_time))
 
                 if i in features['amplitude']:
                     amplitude = features['amplitude'][i]
-                    activation_amplitudes[i] = amplitude[activation_idx]
+                    # Ensure amplitude is a numpy array and activation_idx is within bounds
+                    if isinstance(amplitude, np.ndarray) and activation_idx < len(amplitude):
+                        activation_amplitudes[i] = amplitude[activation_idx]
 
         return activation_amplitudes
 
