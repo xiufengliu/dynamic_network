@@ -58,25 +58,112 @@ The smaller dataset (email-Eu-core-temporal) is included directly in the reposit
 - **Optimized Intervention**: Resource allocation optimization for mitigating event propagation
 - **Visualization**: Comprehensive visualization tools for networks, pathways, and time-series data
 
-## Usage
+## Running Experiments
 
-### Synthetic Example
+The project includes several scripts for running experiments. Here's a guide to using them:
 
-The repository includes a synthetic example that demonstrates the full workflow:
+### 1. Quick Start: Minimal Test
+
+To quickly test if everything is working correctly, run the minimal test:
 
 ```bash
-python examples/synthetic_example.py
+python run_minimal_test.py
 ```
 
 This will:
-1. Generate a synthetic network and event propagation
-2. Extract features using STFT
-3. Detect propagation pathways
-4. Localize event sources
-5. Optimize resource allocation for mitigation
-6. Visualize the results
+- Run a test on a small synthetic network
+- Test the core functionality (pathway detection, source localization, intervention)
+- Take only a few seconds to complete
 
-### Basic Usage Example
+### 2. Running Experiments on a Single Dataset
+
+To run experiments on a single dataset:
+
+```bash
+python run_single_dataset.py --dataset email --subgraph_size 50 --debug
+```
+
+Parameters:
+- `--dataset`: Choose from `email`, `roadnet`, `wiki`, or `reddit`
+- `--subgraph_size`: Number of nodes to include in the subgraph (smaller = faster)
+- `--debug`: Enable detailed logging
+
+Results will be saved to:
+- `results/single_dataset/data/`: Raw results and summary CSV
+- `results/single_dataset/figures/`: Visualizations
+
+### 3. Running All Experiments
+
+To run all experiments (this may take a long time):
+
+```bash
+python run_all_experiments.py --all
+```
+
+Options:
+- `--all`: Run all experiments
+- `--basic`: Run only basic experiments on real-world datasets
+- `--baseline`: Run only baseline comparison
+- `--scalability`: Run only scalability analysis
+- `--sensitivity`: Run only parameter sensitivity analysis
+- `--debug`: Enable detailed logging
+- `--timeout`: Set timeout for each experiment in seconds (default: 3600)
+
+Example for running only basic experiments with debugging:
+```bash
+python run_all_experiments.py --basic --debug
+```
+
+### 4. Step-by-Step Execution
+
+For detailed analysis and debugging:
+
+```bash
+python run_step_by_step.py --dataset email --subgraph_size 20 --debug
+```
+
+This runs the experiment step by step with pauses between each step.
+
+### 5. Checking Datasets and Implementation
+
+Before running experiments, you can check if:
+- Datasets exist and are in the correct format: `python check_datasets.py`
+- Required classes and methods are implemented: `python check_implementation.py`
+
+### 6. Experiment Results
+
+All experiment results are saved in the `results/` directory:
+
+- **Minimal Test Results**: `results/minimal_test/`
+- **Single Dataset Results**:
+  - Data: `results/single_dataset/data/`
+  - Figures: `results/single_dataset/figures/`
+- **All Experiments Results**:
+  - Basic experiments: `results/real_world/`
+  - Baseline comparison: `results/baseline/`
+  - Scalability analysis: `results/scalability/`
+  - Sensitivity analysis: `results/sensitivity/`
+
+Each directory contains:
+- Raw data in pickle format (`.pkl`)
+- Summary statistics in CSV format (`.csv`)
+- Visualizations in PNG format (`.png`)
+
+### Script Overview
+
+| Script | Purpose | When to Use |
+|--------|---------|-------------|
+| `run_minimal_test.py` | Quick test on synthetic data | First test to verify setup |
+| `run_single_dataset.py` | Run on one dataset | Testing a specific dataset |
+| `run_all_experiments.py` | Run all experiments | Full evaluation |
+| `run_step_by_step.py` | Step-by-step execution | Debugging |
+| `check_datasets.py` | Verify datasets | Before running experiments |
+| `check_implementation.py` | Verify implementation | After code changes |
+| `download_datasets.py` | Download large datasets | Initial setup |
+
+### Code Example
+
+For programmatic usage, here's a basic example:
 
 ```python
 import numpy as np
@@ -114,11 +201,43 @@ optimizer = ResourceOptimizer()
 allocation = optimizer.optimize(
     network=network,
     pathways=pathways,
-    initial_impacts=impact_model.calculate_initial_impacts(network, features),
+    initial_impacts=initial_impacts,
     critical_nodes=critical_nodes,
     max_impact=0.1
 )
 ```
+
+## Troubleshooting
+
+If you encounter issues running the experiments:
+
+1. **Check the datasets**:
+   ```bash
+   python check_datasets.py
+   ```
+   Make sure all datasets are available and in the correct format.
+
+2. **Check the implementation**:
+   ```bash
+   python check_implementation.py
+   ```
+   Verify that all required classes and methods are implemented correctly.
+
+3. **Run with smaller subgraph size**:
+   ```bash
+   python run_single_dataset.py --dataset email --subgraph_size 20 --debug
+   ```
+   Using a smaller subgraph reduces memory usage and computation time.
+
+4. **Enable debug logging**:
+   Add the `--debug` flag to any script to get detailed logging information.
+
+5. **Check log files**:
+   - `minimal_test.log`
+   - `single_dataset.log`
+   - `run_real_world_experiments.log`
+
+For more detailed debugging information, see [README_DEBUGGING.md](README_DEBUGGING.md).
 
 ## Project Structure
 
