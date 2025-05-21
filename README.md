@@ -26,7 +26,28 @@ pip install -r requirements.txt
 
 # Install the package in development mode
 pip install -e .
+
+# Download the datasets
+python download_datasets.py
 ```
+
+### Datasets
+
+The project uses four real-world network datasets:
+
+1. **email-Eu-core-temporal** (5.3MB): Email communication network from a European research institution
+   - Included in the repository
+
+2. **roadNet-CA** (84MB): Road network of California
+   - Downloaded by the `download_datasets.py` script
+
+3. **wiki-Talk** (64MB): Wikipedia talk (communication) network
+   - Downloaded by the `download_datasets.py` script
+
+4. **soc-redditHyperlinks-body** (305MB): Reddit hyperlinks network
+   - Downloaded by the `download_datasets.py` script
+
+The smaller dataset (email-Eu-core-temporal) is included directly in the repository, while the larger datasets are downloaded by the `download_datasets.py` script from their original sources.
 
 ## Features
 

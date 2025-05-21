@@ -70,10 +70,16 @@ paper/
 !README.md
 !LICENSE.txt
 
-# Exclude generated data but keep directory structure
+# Include specific datasets
 data/synthetic/*
 data/real_world/*
 !data/synthetic/.gitkeep
 !data/real_world/.gitkeep
 !data/synthetic/README.md
 !data/real_world/README.md
+# Include only smaller datasets (< 100MB)
+!data/real_world/email-Eu-core-temporal.txt
+# Exclude larger datasets (> 100MB) - these will be downloaded by a script
+# !data/real_world/roadNet-CA.txt
+# !data/real_world/wiki-Talk.txt
+# !data/real_world/soc-redditHyperlinks-body.tsv
