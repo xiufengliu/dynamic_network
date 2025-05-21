@@ -27,7 +27,7 @@ logger = logging.getLogger(__name__)
 # Dataset URLs
 ROADNET_URL = "https://snap.stanford.edu/data/roadNet-CA.txt.gz"
 WIKI_TALK_URL = "https://snap.stanford.edu/data/wiki-Talk.txt.gz"
-REDDIT_URL = "https://snap.stanford.edu/data/soc-redditHyperlinks-body.tsv.gz"
+REDDIT_URL = "https://snap.stanford.edu/data/soc-redditHyperlinks-body.tsv"
 
 # Dataset paths
 ROADNET_PATH = 'data/real_world/roadNet-CA.txt'
