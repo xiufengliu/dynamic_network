@@ -1,0 +1,65 @@
+2025-05-21 16:53:31,956 - __main__ - INFO - Starting minimal tests...
+2025-05-21 16:53:31,956 - __main__ - INFO - 
+=== Running test on synthetic network ===
+2025-05-21 16:53:31,956 - __main__ - INFO - Creating test network...
+2025-05-21 16:53:31,957 - __main__ - INFO - Created test network with 10 nodes and 12 edges
+2025-05-21 16:53:31,957 - __main__ - INFO - Selected sources: [0, 5]
+2025-05-21 16:53:31,957 - __main__ - INFO - Simulating event propagation from 2 sources...
+2025-05-21 16:53:31,958 - __main__ - INFO - Simulation completed. Active nodes: 10/10
+2025-05-21 16:53:31,958 - __main__ - INFO - Generated 2 true pathways
+2025-05-21 16:53:31,958 - __main__ - INFO - Extracting features using STFT...
+2025-05-21 16:53:31,958 - __main__ - DEBUG - STFT parameters: window_size=64, overlap=0.5
+2025-05-21 16:53:31,958 - __main__ - DEBUG - Node 0 signal shape: (1000,), type: <class 'numpy.ndarray'>
+2025-05-21 16:53:31,959 - __main__ - DEBUG - Reshaped signal shape: (1, 1000)
+2025-05-21 16:53:31,959 - __main__ - DEBUG - Extracted features keys: dict_keys(['amplitude', 'phase', 'unwrapped_phase', 'activation_time', 'is_active', 'times', 'frequencies', 'freq_idx'])
+2025-05-21 16:53:31,959 - __main__ - DEBUG - Updated features for node 0
+2025-05-21 16:53:31,960 - __main__ - DEBUG - Node 1 signal shape: (1000,), type: <class 'numpy.ndarray'>
+2025-05-21 16:53:31,960 - __main__ - DEBUG - Reshaped signal shape: (1, 1000)
+2025-05-21 16:53:31,960 - __main__ - DEBUG - Extracted features keys: dict_keys(['amplitude', 'phase', 'unwrapped_phase', 'activation_time', 'is_active', 'times', 'frequencies', 'freq_idx'])
+2025-05-21 16:53:31,960 - __main__ - DEBUG - Updated features for node 1
+2025-05-21 16:53:31,960 - __main__ - DEBUG - Node 2 signal shape: (1000,), type: <class 'numpy.ndarray'>
+2025-05-21 16:53:31,960 - __main__ - DEBUG - Reshaped signal shape: (1, 1000)
+2025-05-21 16:53:31,961 - __main__ - DEBUG - Extracted features keys: dict_keys(['amplitude', 'phase', 'unwrapped_phase', 'activation_time', 'is_active', 'times', 'frequencies', 'freq_idx'])
+2025-05-21 16:53:31,961 - __main__ - DEBUG - Updated features for node 2
+2025-05-21 16:53:31,961 - __main__ - DEBUG - Node 3 signal shape: (1000,), type: <class 'numpy.ndarray'>
+2025-05-21 16:53:31,961 - __main__ - DEBUG - Reshaped signal shape: (1, 1000)
+2025-05-21 16:53:31,961 - __main__ - DEBUG - Extracted features keys: dict_keys(['amplitude', 'phase', 'unwrapped_phase', 'activation_time', 'is_active', 'times', 'frequencies', 'freq_idx'])
+2025-05-21 16:53:31,962 - __main__ - DEBUG - Updated features for node 3
+2025-05-21 16:53:31,962 - __main__ - DEBUG - Node 4 signal shape: (1000,), type: <class 'numpy.ndarray'>
+2025-05-21 16:53:31,962 - __main__ - DEBUG - Reshaped signal shape: (1, 1000)
+2025-05-21 16:53:31,963 - __main__ - DEBUG - Extracted features keys: dict_keys(['amplitude', 'phase', 'unwrapped_phase', 'activation_time', 'is_active', 'times', 'frequencies', 'freq_idx'])
+2025-05-21 16:53:31,963 - __main__ - DEBUG - Updated features for node 4
+2025-05-21 16:53:31,963 - __main__ - DEBUG - Node 5 signal shape: (1000,), type: <class 'numpy.ndarray'>
+2025-05-21 16:53:31,963 - __main__ - DEBUG - Reshaped signal shape: (1, 1000)
+2025-05-21 16:53:31,964 - __main__ - DEBUG - Extracted features keys: dict_keys(['amplitude', 'phase', 'unwrapped_phase', 'activation_time', 'is_active', 'times', 'frequencies', 'freq_idx'])
+2025-05-21 16:53:31,965 - __main__ - DEBUG - Updated features for node 5
+2025-05-21 16:53:31,965 - __main__ - DEBUG - Node 6 signal shape: (1000,), type: <class 'numpy.ndarray'>
+2025-05-21 16:53:31,965 - __main__ - DEBUG - Reshaped signal shape: (1, 1000)
+2025-05-21 16:53:31,966 - __main__ - DEBUG - Extracted features keys: dict_keys(['amplitude', 'phase', 'unwrapped_phase', 'activation_time', 'is_active', 'times', 'frequencies', 'freq_idx'])
+2025-05-21 16:53:31,966 - __main__ - DEBUG - Updated features for node 6
+2025-05-21 16:53:31,966 - __main__ - DEBUG - Node 7 signal shape: (1000,), type: <class 'numpy.ndarray'>
+2025-05-21 16:53:31,966 - __main__ - DEBUG - Reshaped signal shape: (1, 1000)
+2025-05-21 16:53:31,967 - __main__ - DEBUG - Extracted features keys: dict_keys(['amplitude', 'phase', 'unwrapped_phase', 'activation_time', 'is_active', 'times', 'frequencies', 'freq_idx'])
+2025-05-21 16:53:31,967 - __main__ - DEBUG - Updated features for node 7
+2025-05-21 16:53:31,967 - __main__ - DEBUG - Node 8 signal shape: (1000,), type: <class 'numpy.ndarray'>
+2025-05-21 16:53:31,968 - __main__ - DEBUG - Reshaped signal shape: (1, 1000)
+2025-05-21 16:53:31,968 - __main__ - DEBUG - Extracted features keys: dict_keys(['amplitude', 'phase', 'unwrapped_phase', 'activation_time', 'is_active', 'times', 'frequencies', 'freq_idx'])
+2025-05-21 16:53:31,968 - __main__ - DEBUG - Updated features for node 8
+2025-05-21 16:53:31,969 - __main__ - DEBUG - Node 9 signal shape: (1000,), type: <class 'numpy.ndarray'>
+2025-05-21 16:53:31,969 - __main__ - DEBUG - Reshaped signal shape: (1, 1000)
+2025-05-21 16:53:31,969 - __main__ - DEBUG - Extracted features keys: dict_keys(['amplitude', 'phase', 'unwrapped_phase', 'activation_time', 'is_active', 'times', 'frequencies', 'freq_idx'])
+2025-05-21 16:53:31,970 - __main__ - DEBUG - Updated features for node 9
+2025-05-21 16:53:31,970 - __main__ - INFO - Detecting propagation pathways...
+2025-05-21 16:53:31,970 - __main__ - INFO - Detected 0 pathways
+2025-05-21 16:53:31,970 - __main__ - INFO - True pathways: [[0, 1, 2, 3, 4], [5, 6, 7, 8, 9]]
+2025-05-21 16:53:31,970 - __main__ - INFO - Detected pathways: []
+2025-05-21 16:53:31,970 - __main__ - INFO - Localizing sources...
+2025-05-21 16:53:31,970 - __main__ - INFO - True sources: [0, 5]
+2025-05-21 16:53:31,970 - __main__ - INFO - Detected sources: [0, 5]
+2025-05-21 16:53:31,970 - __main__ - INFO - Optimizing intervention...
+2025-05-21 16:53:31,972 - __main__ - INFO - Allocated resources to 0 nodes: {}
+2025-05-21 16:53:31,972 - __main__ - INFO - Test on synthetic network completed successfully!
+2025-05-21 16:53:31,972 - __main__ - INFO - 
+=== Minimal Test Summary ===
+2025-05-21 16:53:31,972 - __main__ - INFO - Synthetic network test: OK
+2025-05-21 16:53:31,973 - __main__ - INFO - Real network test: SKIPPED
