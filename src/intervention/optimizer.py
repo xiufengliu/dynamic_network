@@ -81,7 +81,8 @@ class ResourceOptimizer:
     def evaluate_allocation(self, network: DynamicNetwork, pathways: List[PropagationPathway],
                            initial_impacts: Dict[Union[int, str], float],
                            allocation: Dict[Union[int, str], float],
-                           critical_nodes: Optional[List[Union[int, str]]] = None) -> Dict[str, float]:
+                           critical_nodes: Optional[List[Union[int, str]]] = None,
+                           node_vulnerability: Optional[Dict[Union[int, str], float]] = None) -> Dict[str, float]:
         """
         Evaluate a resource allocation.
         

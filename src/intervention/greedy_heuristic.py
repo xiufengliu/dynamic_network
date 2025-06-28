@@ -144,7 +144,8 @@ class GreedyHeuristic:
                 network=network,
                 initial_impacts=initial_impacts,
                 pathways=pathways,
-                resources=allocation
+                resources=allocation,
+                node_vulnerability=node_vulnerability
             )
             
             # Update maximum critical impact

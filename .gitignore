@@ -48,6 +48,37 @@ ENV/
 env.bak/
 venv.bak/
 
+# Project specific
+data/
+results/
+paper/
+experiments/
+*.log
+*.out
+*.err
+*.sh
+run_*.py
+analyze_*.py
+visualize_*.py
+comprehensive_*.py
+*.md.bak
+
+# Temporary files
+*~
+*.swp
+*.swo
+.tmp/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
 # IDE specific files
 .idea/
 .vscode/
